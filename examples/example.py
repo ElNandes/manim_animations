@@ -6,3 +6,10 @@ class FirstExample(Scene):
         green_square =  Square(color= GREEN, fill_opacity= 0.8)
         green_square.next_to(blue_circle, RIGHT)
         self.add(blue_circle,green_square)
+
+class SecondExample(Scene):
+    def construct(self):
+        ax = Axes(x_range=(-3,3), y_range=(-3,3))
+        curve = ax.plot(lambda x: (x+2)*x*(x-2)/2, color= RED)
+        area = ax.get_area(curve, x_range=(-2,0))
+        self.add(ax, curve, area)
