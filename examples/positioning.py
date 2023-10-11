@@ -78,3 +78,30 @@ class Grouping(Scene):
         self.add(stars)
 
 
+# To create a config file use "manim cfg write -l cwd"
+config.background_color=RED
+#This width and height configurations are for instagram format if needed. but can be adjusted to my needs.
+#config.frame_width = 9
+#config.frame_height = 16
+
+#config.pixel_width = 1080
+#config.pixel_height = 1920
+
+class SimpleScene(Scene):
+    def construct(self):
+        plane = NumberPlane(x_range=(-4.5,4.5), y_range=(-8,8))
+        t = Triangle(color= PURPLE, fill_opacity = 0.5)
+        self.add(plane,t)
+
+
+#config.background_color = BLACK
+#Something is not working for Text() maybe check the documentations
+#The issue with version manim 0.17.3 is to use pip install ManimPango==0.4.3 and not ManimPango==0.4.4
+class ChangedDefaults(Scene):
+    def construct(self):
+        Text.set_default(color=GREEN, font_size=100)
+        t = Text('Hello World!')
+
+        Text.set_default()
+        t2 = Text("Goodbye!").next_to(t, DOWN)
+        self.add(t,t2)
